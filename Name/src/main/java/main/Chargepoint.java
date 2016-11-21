@@ -231,7 +231,7 @@ public class Chargepoint
 	
 	private JSONObject createJSONObject(String JSONFIleName) throws FileNotFoundException, IOException, ParseException
 	{
-		return (JSONObject) parser.parse(new FileReader(Chargepoint.class.getResource("/resources/" + JSONFIleName).getFile()));
+		return (JSONObject) parser.parse(new FileReader(Chargepoint.class.getResource("../" + JSONFIleName).getFile()));
 	}
 	
 	//for testing

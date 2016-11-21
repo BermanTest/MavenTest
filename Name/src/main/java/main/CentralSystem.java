@@ -26,7 +26,8 @@ public class CentralSystem
 		try
 		{
 			// Create an empty authorization response PDU
-			JSONObject authorizeResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/AuthorizeResponse.json").getFile()));
+			//JSONObject authorizeResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/AuthorizeResponse.json").getFile()));
+			JSONObject authorizeResponsePDU = createJSONObject("AuthorizeResponse.json");
 
 			// Put the necessary information into the PDU
 			JSONObject idTagInfo = new JSONObject();
@@ -56,8 +57,9 @@ public class CentralSystem
 		try
 		{
 			// Create an empty transaction response PDU
-			JSONObject startTransactionResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/StartTransactionResponse.json").getFile()));
-
+			//JSONObject startTransactionResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/StartTransactionResponse.json").getFile()));
+			JSONObject startTransactionResponsePDU = createJSONObject("StartTransactionResponse.json");
+			
 			// Put the necessary information into the PDU				
 			JSONObject idTagInfo = new JSONObject();
 			idTagInfo.put("status", "Accepted");
@@ -90,8 +92,9 @@ public class CentralSystem
 		try
 		{
 			// Create an empty transaction response PDU
-			JSONObject stopTransactionResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/StopTransactionResponse.json").getFile()));
-
+			//JSONObject stopTransactionResponsePDU = (JSONObject) parser.parse(new FileReader(CentralSystem.class.getResource("/resources/StopTransactionResponse.json").getFile()));
+			JSONObject stopTransactionResponsePDU = createJSONObject("StopTransactionResponse.json");
+			
 			// Put the necessary information into the PDU				
 			JSONObject idTagInfo = new JSONObject();
 			idTagInfo.put("status", "Accepted");
@@ -193,7 +196,7 @@ public class CentralSystem
 	
 	private JSONObject createJSONObject(String JSONFIleName) throws FileNotFoundException, IOException, ParseException
 	{
-		return (JSONObject) parser.parse(new FileReader(Chargepoint.class.getResource("/resources/" + JSONFIleName).getFile()));
+		return (JSONObject) parser.parse(new FileReader(Chargepoint.class.getResource("../" + JSONFIleName).getFile()));
 	}
 
 
